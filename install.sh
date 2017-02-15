@@ -85,7 +85,7 @@ EOF
 
 
 echo "Creating folders"
-mkdir factorio/save
+mkdir factorio/saves
 
 echo "Starting up"
 docker-compose up --build -d
