@@ -1,0 +1,4 @@
+app:
+    resource: "@Ribase/Controller/"
+    type:     annotation
+

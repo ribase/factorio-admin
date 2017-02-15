@@ -1,0 +1,6 @@
+{
+  "starting-level": "level-01",
+  "order" : "b",
+  "dependencies": [ "demo" ],
+  "difficulties": [ "easy", "normal", "hard" ]
+}

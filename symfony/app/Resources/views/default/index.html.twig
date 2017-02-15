@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="large-4 columns">
+            <a href={{ path('ServerSettings') }}>
+                <div class="box server">
+                    Server Settings
+                </div>
+            </a>
+        </div>
+        <div class="large-4 columns">
+            <a href={{ path('MapGenSettings') }}>
+                <div class="box map">
+                    Map Settings
+                </div>
+            </a>
+        </div>
+        <div class="large-4 columns">
+            <a href={{ path('Savegames') }}>
+                <div class="box save">
+                    Savegames
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 columns">
+            <a href={{ path('Mods') }}>
+                <div class="box mod">
+                    Mods
+                </div>
+            </a>
+        </div>
+        <div class="large-4 columns">
+            <a href="{{ path('Serveractions') }}">
+                <div class="box action">
+                    Serveractions
+                </div>
+            </a>
+        </div>
+        <div class="large-4 columns">
+            <a href="{{ path('Serverlogs') }}">
+                <div class="box logs">
+                    Serverlogs
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}

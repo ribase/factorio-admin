@@ -1,0 +1,47 @@
+version: '2'
+services:
+    db:
+        image: mysql
+        ports:
+            - 3306:3306
+        volumes:
+            - "./.data/db:/var/lib/mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    redis:
+        image: redis:alpine
+        ports:
+            - 6379:6379
+    php:
+        build: docker/php7-fpm
+        ports:
+            - 9000:9000
+        links:
+            - db:mysqldb
+            - redis
+        volumes:
+            - ${SYMFONY_APP_PATH}:/var/www/symfony
+            - ./docker/logs/symfony:/var/www/symfony/app/logs
+        volumes_from:
+            - factorio
+    nginx:
+        build: docker/nginx
+        ports:
+            - 8080:80
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./docker/logs/nginx/:/var/log/nginx
+    factorio:
+        build: docker/factorio
+        command: bash -c "/usr/bin/supervisord"
+        tty: true
+        volumes:
+            - ./factorio:/var/opt/factorio
+        ports:
+          - 34197:34197

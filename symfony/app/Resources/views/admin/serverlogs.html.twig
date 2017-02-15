@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="terminal-optics">
+                <ul class="shell-body">
+                    {% for items in view %}
+                        {% for item in items %}
+                            {% if item is not empty %}
+                                <li>{{ item }}</li>
+                            {% endif %}
+                        {%  endfor %}
+                    {%  endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
