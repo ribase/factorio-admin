@@ -80,6 +80,13 @@ cat << "EOF"
 
 EOF
 
+
+
+
+
+echo "Creating folders"
+mkdir factorio/save
+
 echo "Starting up"
 docker-compose up --build -d
 
