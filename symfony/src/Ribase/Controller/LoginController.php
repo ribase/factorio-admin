@@ -42,7 +42,7 @@ class LoginController extends Controller
             array(
                 // last username entered by the user
                 'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
-                'error'         => $error,
+                'error' => $error
             )
         );
     }
