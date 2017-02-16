@@ -35,4 +35,13 @@ class SecurityController extends Controller
         ));
     }
 
+    private function userExist() {
+        $repository = $this->getDoctrine()->getRepository('Ribase:User');
+
+        $users = $repository->findAll();
+
+        return count($users);
+
+    }
+
 }
