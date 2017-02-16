@@ -89,24 +89,12 @@ mkdir factorio/saves
 echo "Starting up"
 docker-compose up --build -d
 
-echo "Fix permissions"
-#sudo chown -R $USER ./*
-
 echo "Install adminpanel"
 docker exec --user 1000 -ti factorioadmin_php_1 composer install -d /var/www/symfony/
-
-echo "Fix permissions"
-#sudo chown -R $USER ./*
 
 echo "Creating database"
 docker exec --user 1000 -ti factorioadmin_php_1 /var/www/symfony/install-db.sh
 
-echo "Fix permissions"
-#sudo chown -R $USER ./*
-
 echo "Creating Factorio serverfiles"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
 cp factorio/data/server-settings.example.json factorio/data/server-settings.json
-
-echo "Fix permissions"
-sudo chown -R $USER ./*
