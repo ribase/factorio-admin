@@ -2,3 +2,5 @@ app:
     resource: "@Ribase/Controller/"
     type:     annotation
 
+logout:
+    path: /logout

@@ -57,6 +57,7 @@
     <div id="responsive-menu">
         <div class="top-bar-right">
             <ul class="dropdown menu">
+                {% if app.user %}
                 <li>
                     <a href="{{ path('homepage') }}">Dashboard</a>
                 </li>
@@ -69,9 +70,17 @@
                 <li>
                     <a href="#">Info</a>
                 </li>
+
                 <li>
-                    <a href="{{ path('login') }}">Login</a>
+                    <a href="{{ path('logout') }}">Logout</a>
                 </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('login') }}">Login</a>
+                    </li>
+
+                {% endif %}
+
             </ul>
         </div>
     </div>
