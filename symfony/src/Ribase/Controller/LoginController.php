@@ -17,7 +17,7 @@ class LoginController extends Controller
         $users = $this->userExist();
 
         if($users == 0){
-            return $this->redirectToRoute('register', array(), 301);
+            return $this->redirectToRoute('Register', array(), 301);
         }
 
         // replace this example code with whatever you need
