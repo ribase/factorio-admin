@@ -90,19 +90,19 @@ echo "Starting up"
 docker-compose up --build -d
 
 echo "Fix permissions"
-sudo chown -R $USER ./*
+#sudo chown -R $USER ./*
 
 echo "Install adminpanel"
-docker exec -ti factorioadmin_php_1 composer install -d /var/www/symfony/
+docker exec -ti factorioadmin_php_1 --user 1000 composer install -d /var/www/symfony/
 
 echo "Fix permissions"
-sudo chown -R $USER ./*
+#sudo chown -R $USER ./*
 
 echo "Creating database"
-docker exec -ti factorioadmin_php_1 /var/www/symfony/install-db.sh
+docker exec -ti factorioadmin_php_1 --user 1000 /var/www/symfony/install-db.sh
 
 echo "Fix permissions"
-sudo chown -R $USER ./*
+#sudo chown -R $USER ./*
 
 echo "Creating Factorio serverfiles"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
