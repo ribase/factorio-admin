@@ -17,6 +17,7 @@ class DefaultController extends Controller
         $users = $this->userExist();
 
         if($users == 0){
+            die;
             return $this->redirectToRoute('register', array(), 301);
         }
 
