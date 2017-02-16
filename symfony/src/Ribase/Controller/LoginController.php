@@ -37,6 +37,7 @@ class LoginController extends Controller
             $error = 0;
         }
 
+        dump($session->get(SecurityContextInterface::LAST_USERNAME));
         return $this->render(
             $this->render('security/login.html.twig'),
             array(
