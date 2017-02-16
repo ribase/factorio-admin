@@ -5,6 +5,7 @@ namespace Ribase\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContextInterface;
 
 class LoginController extends Controller
 {
@@ -20,8 +21,26 @@ class LoginController extends Controller
             return $this->redirectToRoute('Register', array(), 301);
         }
 
-        // replace this example code with whatever you need
-        return $this->render('security/login.html.twig');
+        $session = $request->getSession();
+
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContextInterface::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(
+                SecurityContextInterface::AUTHENTICATION_ERROR
+            );
+        } else {
+            $error = $session->get(SecurityContextInterface::AUTHENTICATION_ERROR);
+            $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
+        }
+
+        return $this->render(
+            $this->render('security/login.html.twig'),
+            array(
+                // last username entered by the user
+                'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
+                'error'         => $error,
+            )
+        );
     }
 
     private function userExist() {
