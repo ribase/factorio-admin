@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
 <div class="row">
     <div class="large-12 columns">
         <form action="{{ path('login') }}" method="post">

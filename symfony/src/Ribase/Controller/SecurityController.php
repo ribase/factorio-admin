@@ -15,6 +15,12 @@ class SecurityController extends Controller
      */
     public function loginAction(Request $request)
     {
+        $users = $this->userExist();
+
+        if($users == 0){
+            return $this->redirectToRoute('Register', array(), 301);
+        }
+
         $authenticationUtils = $this->get('security.authentication_utils');
 
         // get the login error if there is one
