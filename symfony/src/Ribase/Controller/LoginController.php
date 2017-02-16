@@ -33,6 +33,10 @@ class LoginController extends Controller
             $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
         }
 
+        if(!isset($error)){
+            $error = 0;
+        }
+
         return $this->render(
             $this->render('security/login.html.twig'),
             array(
