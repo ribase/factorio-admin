@@ -27,7 +27,6 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-        secured_area:
             logout:
                 path:   /logout
                 target: /
