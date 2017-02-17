@@ -10,8 +10,6 @@ cd /var/opt/factorio/update-folder/ ; tar -xf $1
 
 cp -rf /var/opt/factorio/update-folder/factorio/* /var/opt/factorio/
 
-supervisorctl restart factorio
-
 rm -rf /var/opt/factorio/update-folder/*
 
 return true
