@@ -66,13 +66,8 @@ Go to the cloned repo:
 
 `cd ~/`
 
-If you need to install docker and docker-compose:
+Just type in `$: ./install`and follow the instructions.
 
-`./install --docker`
-
-If you dont need to install docker:
-
-`./install`
 
 ##### RHEL/CentOS
 
