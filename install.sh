@@ -86,10 +86,9 @@ cat << "EOF"
 
 EOF
 {
-echo "XXX"
-echo "Creating update-folder"
-echo "0"
-echo "XXX"
+echo "10" ; sleep 1
+echo "XXX" ; echo "Alle Daten werden gesichert"; echo "XXX"
+echo "20" ; sleep 1
 mkdir ./factorio/update-folder >> /dev/null 2>&1
 
 echo "XXX"
