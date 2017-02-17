@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+function installDocker {
 cat << "EOF"
              *
        *   *
@@ -32,9 +33,6 @@ cat << "EOF"
 
 EOF
 
-
-
-if [ "$1" == "--docker" ]; then
 {
     echo "Installing libs"
     sudo apt-get update -y
@@ -67,7 +65,9 @@ if [ "$1" == "--docker" ]; then
     echo "100"
 } | whiptail --gauge "Please wait while installing" 6 60 0
 
-fi
+}
+
+function installServer {
 
 cat << "EOF"
                     ##        .
@@ -85,14 +85,8 @@ cat << "EOF"
       \__/| \__/ \__ |\_ \__  |
 
 EOF
-{
 
-NEWT_COLORS='
-  window=,red
-  border=white,red
-  textbox=white,red
-  button=black,white
-'
+{
 
 echo "XXX"
 echo "0"
@@ -165,3 +159,10 @@ echo "XXX"
 sleep 3
 
 } | whiptail --gauge "Please wait while installing" 6 60 0
+}
+
+if (whiptail --title "Test Yes/No Box" --yesno "Choose between Yes and No." 10 60) then
+    echo "You chose Yes. Exit status was $?."
+else
+    echo "You chose No. Exit status was $?."
+fi
