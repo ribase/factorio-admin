@@ -61,7 +61,7 @@ EOF
     echo "60"
     echo "Installing docker compose"
     echo "XXX"
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  >> /dev/null 2>&1
     sudo chmod +x /usr/local/bin/docker-compose
 
     echo "XXX"
