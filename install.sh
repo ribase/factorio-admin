@@ -93,8 +93,6 @@ echo $filename
 echo "Installing factorio "
 ./factorio/firstinstall.sh $filename
 
-exit
-
 echo "Creating folders"
 mkdir factorio/saves
 
@@ -106,6 +104,9 @@ docker-compose exec --user 1000 php composer install --no-interaction -d /var/ww
 
 echo "Creating database"
 docker-compose exec --user 1000 php /var/www/symfony/install-db.sh
+
+echo "Starting gameserver"
+docker-compose exec --user 1000 factorio /var/opt/factorio/start.sh
 
 echo "Creating Factorio serverfiles"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
