@@ -90,7 +90,7 @@ echo "Starting up"
 docker-compose up --build -d
 
 echo "Install adminpanel"
-docker exec --user 1000 -ti factorioadmin_php_1 composer install -d /var/www/symfony/
+docker exec --user 1000 -ti factorioadmin_php_1 composer install --no-interaction -d /var/www/symfony/
 
 echo "Creating database"
 docker exec --user 1000 -ti factorioadmin_php_1 /var/www/symfony/install-db.sh
