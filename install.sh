@@ -151,4 +151,6 @@ cp factorio/data/server-settings.example.json factorio/data/server-settings.json
 
 
 echo "100"
+
+sleep 3
 } | whiptail --gauge "Please wait while installing" 6 60 0
