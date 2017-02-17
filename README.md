@@ -11,13 +11,17 @@
 
 ### Install
 
-#### Create User for Stack
+#### Create user for Stack
 
 `$: sudo useradd -d /home/factorio -m factorio`
 
 Then create a password for this user
 
 `$: passwd factorio`
+
+#### Add user to sudoers list
+
+`$: sudo adduser factorio sudo`
 
 #### Create Docker group
 

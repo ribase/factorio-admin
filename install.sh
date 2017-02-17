@@ -35,14 +35,15 @@ EOF
 
 
 if [ "$1" == "--docker" ]; then
-
+{
     echo "Installing libs"
-    sudo apt-get update
-    sudo apt-get install -y --no-install-recommends \
+    sudo apt-get update -y
+    sudo apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --force-yes --no-install-recommends \
     linux-image-extra-$(uname -r) \
     linux-image-extra-virtual
 
     echo "Adding docker to apt repo"
+    echo "20"
     curl -fsSL https://apt.dockerproject.org/gpg | sudo apt-key add -
     apt-key fingerprint 58118E89F3A912897C070ADBF76221572C52609D
     sudo add-apt-repository -y "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
@@ -50,16 +51,21 @@ if [ "$1" == "--docker" ]; then
 
 
     echo "Installing docker"
-
-
+    echo "40"
     sudo apt-get -y install docker-engine
 
     echo "Installing docker compose"
+    echo "60"
     sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 
     echo "Starting docker if not happenend"
+    echo "80"
     sudo service docker restart
+
+
+    echo "100"
+} | whiptail --gauge "Please wait while installing" 6 60 0
 
 fi
 
@@ -79,35 +85,49 @@ cat << "EOF"
       \__/| \__/ \__ |\_ \__  |
 
 EOF
-
+{
 echo "Creating update-folder"
+echo "0"
 mkdir ./factorio/update-folder
 
 echo "Downloading Serverfiles"
+echo "5"
 wget --directory-prefix=factorio/update-folder/ --quiet --content-disposition https://www.factorio.com/get-download/0.14.22/headless/linux64
 
 echo "Downloading Serverfiles"
+echo "10"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
 echo $filename
 
 echo "Installing factorio "
+echo "15"
 ./factorio/firstinstall.sh $filename
 
 echo "Creating folders"
+echo "20"
 mkdir factorio/saves
 
 echo "Starting up"
+echo "40"
 docker-compose up --build -d
 
 echo "Install adminpanel"
+echo "50"
 docker-compose exec --user 1000 php composer install --no-interaction -d /var/www/symfony/
 
 echo "Creating database"
+echo "60"
 docker-compose exec --user 1000 php /var/www/symfony/install-db.sh
 
 echo "Starting gameserver"
+echo "70"
 docker-compose exec factorio supervisorctl restart factorio
 
 echo "Creating Factorio serverfiles"
+echo "90"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
 cp factorio/data/server-settings.example.json factorio/data/server-settings.json
+
+
+echo "100"
+} | whiptail --gauge "Please wait while installing" 6 60 0
