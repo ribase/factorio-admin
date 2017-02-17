@@ -88,9 +88,10 @@ wget -P /factorio/update-folder --quiet --content-disposition https://www.factor
 
 echo "Downloading Serverfiles"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
+echo $filename
 
 echo "Installing factorio "
-./factorio/firstinstall.sh $(ls ./factorio/update-folder | grep tar.gz)
+./factorio/firstinstall.sh $filename
 
 exit
 
