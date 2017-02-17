@@ -156,4 +156,4 @@ echo "Nearly done"
 echo "XXX"
 sleep 3
 
-} | whiptail --gauge "Please wait while installing" 6 60 0
+} | whiptail --gauge "Please wait while installing" 2 60 0
