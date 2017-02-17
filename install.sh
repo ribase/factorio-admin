@@ -86,6 +86,14 @@ cat << "EOF"
 
 EOF
 {
+
+NEWT_COLORS='
+  window=,red
+  border=white,red
+  textbox=white,red
+  button=black,white
+'
+
 echo "XXX"
 echo "0"
 echo "Creating update-folder"
@@ -156,4 +164,4 @@ echo "Nearly done"
 echo "XXX"
 sleep 3
 
-} | whiptail --gauge "Please wait while installing" 2 60 0
+} | whiptail --gauge "Please wait while installing" 6 60 0
