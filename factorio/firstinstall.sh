@@ -6,9 +6,9 @@ cd update-folder/ && tar -xf $1
 
 cd ../
 
-cp -rf ./update-folder/factorio/* ../factorio
+cp -rf update-folder/factorio/* ../factorio
 
-rm -rf ./update-folder/*
+rm -rf update-folder/*
 
 return true
 
