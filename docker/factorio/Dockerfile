@@ -6,3 +6,4 @@ RUN apt-get update -y && apt-get install -y git \
     supervisor
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+

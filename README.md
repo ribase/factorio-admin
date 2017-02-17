@@ -19,6 +19,15 @@ Then create a password for this user
 
 `$: passwd factorio`
 
+#### Create Docker group
+
+`$: sudo groupadd docker`
+
+#### Give user docker rights 
+
+`$: sudo gpasswd -a factorio docker`
+
+
 #### Switch to user
 
 Just type `$: login` in your terminal.
