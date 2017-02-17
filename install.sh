@@ -34,31 +34,40 @@ cat << "EOF"
 EOF
 
 {
+    echo "XXX"
     echo "Installing libs"
+    echo "XXX"
     sudo apt-get update -y
     sudo apt-get install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --force-yes --no-install-recommends \
     linux-image-extra-$(uname -r) \
     linux-image-extra-virtual
 
-    echo "Adding docker to apt repo"
+    echo "XXX"
     echo "20"
+    echo "Adding docker to apt repo"
+    echo "XXX"
     curl -fsSL https://apt.dockerproject.org/gpg | sudo apt-key add -
     apt-key fingerprint 58118E89F3A912897C070ADBF76221572C52609D
     sudo add-apt-repository -y "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main"
     sudo apt-get update
 
-
-    echo "Installing docker"
+    echo "XXX"
     echo "40"
+    echo "Installing docker"
+    echo "XXX"
     sudo apt-get -y install docker-engine
 
-    echo "Installing docker compose"
+    echo "XXX"
     echo "60"
+    echo "Installing docker compose"
+    echo "XXX"
     sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
 
-    echo "Starting docker if not happenend"
+    echo "XXX"
     echo "80"
+    echo "Starting docker if not happenend"
+    echo "XXX"
     sudo service docker restart
 
 
@@ -161,8 +170,9 @@ sleep 3
 } | whiptail --gauge "Please wait while installing" 6 60 0
 }
 
-if (whiptail --title "Test Yes/No Box" --yesno "Choose between Yes and No." 10 60) then
-    echo "You chose Yes. Exit status was $?."
+if (whiptail --title "Docker" --yesno "Should i install docker for you?" 10 60) then
+    installDocker
+    installServer
 else
-    echo "You chose No. Exit status was $?."
+    installServer
 fi
