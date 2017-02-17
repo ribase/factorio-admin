@@ -88,7 +88,7 @@ EOF
 {
 echo "Creating update-folder"
 echo "0"
-mkdir ./factorio/update-folder
+mkdir ./factorio/update-folder >> /dev/null 2>&1
 
 echo "Downloading Serverfiles"
 echo "5"
@@ -99,13 +99,13 @@ echo "10"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
 echo $filename
 
-echo "Installing factorio "
+echo "Installing factorio"
 echo "15"
-./factorio/firstinstall.sh $filename
+./factorio/firstinstall.sh $filename >> /dev/null 2>&1
 
 echo "Creating folders"
 echo "20"
-mkdir factorio/saves
+mkdir factorio/saves >> /dev/null 2>&1
 
 echo "Starting up"
 echo "40"
@@ -113,20 +113,20 @@ docker-compose up --build -d >> /dev/null 2>&1
 
 echo "Install adminpanel"
 echo "50"
-docker-compose exec --user 1000 php composer install --no-interaction -d /var/www/symfony/
+docker-compose exec --user 1000 php composer install --no-interaction -d /var/www/symfony/ >> /dev/null 2>&1
 
 echo "Creating database"
 echo "60"
-docker-compose exec --user 1000 php /var/www/symfony/install-db.sh
+docker-compose exec --user 1000 php /var/www/symfony/install-db.sh >> /dev/null 2>&1
 
 echo "Starting gameserver"
 echo "70"
-docker-compose exec factorio supervisorctl restart factorio
+docker-compose exec factorio supervisorctl restart factorio >> /dev/null 2>&1
 
 echo "Creating Factorio serverfiles"
 echo "90"
-cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
-cp factorio/data/server-settings.example.json factorio/data/server-settings.json
+cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json >> /dev/null 2>&1
+cp factorio/data/server-settings.example.json factorio/data/server-settings.json >> /dev/null 2>&1
 
 
 echo "100"
