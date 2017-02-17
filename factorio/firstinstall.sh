@@ -2,13 +2,13 @@
 
 fileName=$1
 
-cd update-folder/ && tar -xf $1
+cd factorio/update-folder/ && tar -xf $1
 
 cd ../
 
-cp -rf update-folder/factorio/* ../factorio
+cp -rf factorio/update-folder/factorio/* factorio/
 
-rm -rf update-folder/*
+rm -rf factorio/update-folder/*
 
 return true
 
