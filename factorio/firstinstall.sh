@@ -2,7 +2,7 @@
 
 fileName=$1
 
-cd ./update-folder/ && tar -xf $1
+cd update-folder/ && tar -xf $1
 
 cd ../
 
