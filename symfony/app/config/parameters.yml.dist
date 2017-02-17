@@ -2,11 +2,11 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     '%env(MYSQL_HOST)%'
-    database_port:     '%env(MYSQL_PORT)%'
-    database_name:     '%env(MYSQL_DATABASE)%'
-    database_user:     '%env(MYSQL_USER)%'
-    database_password: '%env(MYSQL_PASSWORD)%'
+    database_host:     '%mysql.host%'
+    database_port:     '%mysql.port%'
+    database_name:     '%mysql.database%'
+    database_user:     '%mysql.user%'
+    database_password: '%mysql.password%'
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 

@@ -28,12 +28,12 @@ services:
         volumes_from:
             - factorio
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_PORT: ${MYSQL_PORT}
-            MYSQL_HOST: ${MYSQL_HOST}
+            SYMFONY__MYSQL__ROOT__PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            SYMFONY__MYSQL__DATABASE: ${MYSQL_DATABASE}
+            SYMFONY__MYSQL__USER: ${MYSQL_USER}
+            SYMFONY__MYSQL__PASSWORD: ${MYSQL_PASSWORD}
+            SYMFONY__MYSQL__PORT: ${MYSQL_PORT}
+            SYMFONY__MYSQL__HOST: ${MYSQL_HOST}
     nginx:
         build: docker/nginx
         ports:
