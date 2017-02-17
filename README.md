@@ -6,9 +6,22 @@
 
 - Docker (Included in autoinstaller)
 - Linux or OSX Host
+- GIT
 - At least a dualcore CPU with 2 GHz each core.
 
 ### Install
+
+#### Create User for Stack
+
+`$: sudo useradd -d /home/factorio -m factorio`
+
+Then create a password for this user
+
+`$: passwd factorio`
+
+#### Switch to user
+
+Just type `$: login` in your terminal.
 
 #### Clone Repo
 Go to your desired folder like home:
@@ -17,9 +30,7 @@ Go to your desired folder like home:
 
 To get this repository local use the following command:
 
-SSH: `$: git clone git@github.com:ribase/factorio-admin.git`
-
-HTTPS: `$: git clone https://github.com/ribase/factorio-admin.git`
+`$: git clone https://github.com/ribase/factorio-admin.git`
 
 #### Configure
 
