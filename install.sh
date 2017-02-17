@@ -90,7 +90,7 @@ echo "Downloading Serverfiles"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
 
 echo "Installing factorio"
-./factorio/firstinstall.sh.sh $filename
+./factorio/firstinstall.sh $filename
 
 echo "Creating folders"
 mkdir factorio/saves
