@@ -90,10 +90,10 @@ echo "Starting up"
 docker-compose up --build -d
 
 echo "Install adminpanel"
-docker-compose exec --user 1000 -ti php composer install --no-interaction -d /var/www/symfony/
+docker-compose exec --user 1000 php composer install --no-interaction -d /var/www/symfony/
 
 echo "Creating database"
-docker-compose exec --user 1000 -ti php /var/www/symfony/install-db.sh
+docker-compose exec --user 1000 php /var/www/symfony/install-db.sh
 
 echo "Creating Factorio serverfiles"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
