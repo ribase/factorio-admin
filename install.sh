@@ -106,7 +106,7 @@ echo "Creating database"
 docker-compose exec --user 1000 php /var/www/symfony/install-db.sh
 
 echo "Starting gameserver"
-docker-compose exec --user 1000 factorio /var/opt/factorio/start.sh
+docker-compose exec --user 1000 factorio supervisorctl restart factorio
 
 echo "Creating Factorio serverfiles"
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
