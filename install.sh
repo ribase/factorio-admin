@@ -146,11 +146,14 @@ echo "90"
 echo "Creating Factorio serverfiles"
 echo "XXX"
 
-cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json >> /dev/null 2>&1
-cp factorio/data/server-settings.example.json factorio/data/server-settings.json >> /dev/null 2>&1
+cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json
+cp factorio/data/server-settings.example.json factorio/data/server-settings.json
 
 
+echo "XXX"
 echo "100"
-
+echo "Nearly done"
+echo "XXX"
 sleep 3
+
 } | whiptail --gauge "Please wait while installing" 6 60 0
