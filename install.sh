@@ -84,7 +84,7 @@ echo "Creating update-folder"
 mkdir ./factorio/update-folder
 
 echo "Downloading Serverfiles"
-wget -P /factorio/update-folder --quiet --content-disposition https://www.factorio.com/get-download/0.14.22/headless/linux64
+wget -O ./factorio/update-folder --quiet --content-disposition https://www.factorio.com/get-download/0.14.22/headless/linux64
 
 echo "Downloading Serverfiles"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
