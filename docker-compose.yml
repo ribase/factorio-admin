@@ -27,6 +27,11 @@ services:
             - ./docker/logs/symfony:/var/www/symfony/app/logs
         volumes_from:
             - factorio
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     nginx:
         build: docker/nginx
         ports:
