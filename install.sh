@@ -86,63 +86,64 @@ cat << "EOF"
 
 EOF
 {
-echo "10" ; sleep 1
-echo "XXX" ; echo "Alle Daten werden gesichert"; echo "XXX"
-echo "20" ; sleep 1
+echo "XXX"
+echo "0"
+echo "Creating update-folder"
+echo "XXX"
 mkdir ./factorio/update-folder >> /dev/null 2>&1
 
 echo "XXX"
-echo "Downloading Serverfiles"
 echo "5"
+echo "Downloading Serverfiles"
 echo "XXX"
 wget --directory-prefix=factorio/update-folder/ --quiet --content-disposition https://www.factorio.com/get-download/0.14.22/headless/linux64
 
 echo "XXX"
-echo "Downloading Serverfiles"
 echo "10"
+echo "Downloading Serverfiles"
 echo "XXX"
 filename=$(ls ./factorio/update-folder | grep tar.gz)
 echo $filename
 
 echo "XXX"
-echo "Installing factorio"
 echo "15"
+echo "Installing factorio"
 echo "XXX"
 ./factorio/firstinstall.sh $filename >> /dev/null 2>&1
 
 echo "XXX"
-echo "Creating folders"
 echo "20"
+echo "Creating folders"
 echo "XXX"
 mkdir factorio/saves >> /dev/null 2>&1
 
 echo "XXX"
-echo "Starting up"
 echo "40"
+echo "Starting up"
 echo "XXX"
 docker-compose up --build -d >> /dev/null 2>&1
 
 echo "XXX"
-echo "Install adminpanel"
 echo "50"
+echo "Install adminpanel"
 echo "XXX"
 docker-compose exec --user 1000 php composer install --no-interaction -d /var/www/symfony/ >> /dev/null 2>&1
 
 echo "XXX"
-echo "Creating database"
 echo "60"
+echo "Creating database"
 echo "XXX"
 docker-compose exec --user 1000 php /var/www/symfony/install-db.sh >> /dev/null 2>&1
 
 echo "XXX"
-echo "Starting gameserver"
 echo "70"
+echo "Starting gameserver"
 echo "XXX"
 docker-compose exec factorio supervisorctl restart factorio >> /dev/null 2>&1
 
 echo "XXX"
-echo "Creating Factorio serverfiles"
 echo "90"
+echo "Creating Factorio serverfiles"
 echo "XXX"
 
 cp factorio/data/map-gen-settings.example.json factorio/data/map-gen-settings.json >> /dev/null 2>&1
