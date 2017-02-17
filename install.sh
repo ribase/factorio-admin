@@ -109,7 +109,7 @@ mkdir factorio/saves
 
 echo "Starting up"
 echo "40"
-docker-compose up --build -d
+docker-compose up --build -d >> /dev/null 2>&1
 
 echo "Install adminpanel"
 echo "50"
