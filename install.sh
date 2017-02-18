@@ -6,6 +6,7 @@ OS=$(lsb_release -si)
 ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VER=$(lsb_release -sr)
 
+dialog="You are using: /n $OS /n $ARCH /n $VER /n is this correct?"
 
 function installDocker {
 cat << "EOF"
@@ -187,11 +188,7 @@ function doInstall {
     fi
 }
 
-if (whiptail --title "Example Dialog" --yesno "You are using:" /
-$OS /
-$ARCH /
-$VER /
-"is this correct?" 12 78) then
+if (whiptail --title "Example Dialog" --yesno $dialog 12 78) then
     doInstall
 else
    exit;
