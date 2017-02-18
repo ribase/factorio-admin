@@ -4,10 +4,11 @@
 
 ### Requirements
 
-- Docker (Included in autoinstaller)
-- Linux or OSX Host
+- Docker (Included in autoinstaller).
+- Linux or OSX Host.
 - GIT
 - At least a dualcore CPU with 2 GHz each core.
+- 4GB free disk space.
 
 ### Install
 

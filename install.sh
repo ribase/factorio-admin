@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+
+
+OS=$(lsb_release -si)
+ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
+VER=$(lsb_release -sr)
+
+
 function installDocker {
 cat << "EOF"
              *
@@ -171,9 +178,21 @@ sleep 3
 } | whiptail --gauge "Please wait while installing" 6 60 0
 }
 
-if (whiptail --title "Docker" --yesno "Should i install docker for you?" 10 60) then
-    installDocker
-    installServer
+function doInstall {
+    if (whiptail --title "Docker" --yesno "Should i install docker for you?" 10 60) then
+        installDocker
+        installServer
+    else
+        installServer
+    fi
+}
+
+if (whiptail --title "Example Dialog" --yesno "You are using:" /
+$OS /
+$ARCH /
+$VER /
+"is this correct?" 12 78) then
+    doInstall
 else
-    installServer
+   exit(0)
 fi
