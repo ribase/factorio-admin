@@ -16,7 +16,7 @@ services:
         ports:
             - 6379:6379
     php:
-        image: ribase/php
+        build: docker/php7-fpm
         ports:
             - 9000:9000
         links:
@@ -35,7 +35,7 @@ services:
             SYMFONY__MYSQL__PORT: ${MYSQL_PORT}
             SYMFONY__MYSQL__HOST: ${MYSQL_HOST}
     nginx:
-        image: ribase/nginx
+        build: docker/nginx
         ports:
             - 8080:80
         links:
@@ -45,7 +45,7 @@ services:
         volumes:
             - ./docker/logs/nginx/:/var/log/nginx
     factorio:
-        image: ribase/factorio
+        build: docker/factorio
         command: bash -c "/usr/bin/supervisord"
         tty: true
         volumes:
