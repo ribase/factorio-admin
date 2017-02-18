@@ -139,7 +139,7 @@ mkdir factorio/saves >> /dev/null 2>&1
 
 echo "XXX"
 echo "40"
-echo "Starting up"
+echo "Starting up server environment (takes about 2mins)"
 echo "XXX"
 docker-compose up --build -d >> /dev/null 2>&1
 
