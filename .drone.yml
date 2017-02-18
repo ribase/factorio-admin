@@ -1,3 +1,15 @@
 clone:
   depth: 1000
   recursive: true
+publish:
+  s3_sync:
+    acl: public-read
+    region: "eu-west-1"
+    bucket: "factorio-admin"
+    access_key: $$ACCESS
+    secret_key: $$SECRET
+    source: /
+    target: /
+    recursive: true
+    when:
+      branch: master
