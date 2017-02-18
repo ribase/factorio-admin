@@ -194,5 +194,5 @@ $VER /
 "is this correct?" 12 78) then
     doInstall
 else
-   exit(0)
+   exit;
 fi
