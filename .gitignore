@@ -139,4 +139,8 @@ Temporary Items
 .idea/
 /factorio-update-backup.tar.gz
 /symfony/factorio-update-backup.tar.gz
-/factorio/bin/
+/factorio/
+!/factorio/update.sh
+!/factorio/start.sh
+!/factorio/firstinstall.sh
+!/factorio/stop.sh
