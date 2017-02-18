@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="row">
+    <fieldset class="large-12 columns">
+        {{ form_start(form) }}
+            <table>
+                <thead>
+                <tr>
+                    <th width="200">Filename</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in view %}
+
+                    <tr>
+                        <td>{{ file }}</td>
+                        <td><input id="form[{{ file }}]" type="checkbox" name="form[{{ file }}]" value="DELETE"><label for="form[{{ file }}]">Delete</label></td>
+                    </tr>
+
+                {%  endfor %}
+
+
+
+                </tbody>
+            </table>
+        {{ form_end(form) }}
+    </fieldset>
+</div>
+{% endblock %}
