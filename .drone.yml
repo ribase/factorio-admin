@@ -1,7 +1,8 @@
+
+clone:
+  depth: 1000
+  recursive: true
 pipeline:
-  clone:
-    depth: 1000
-    recursive: true
   publish:
     s3_sync:
       acl: public-read
