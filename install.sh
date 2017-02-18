@@ -6,7 +6,7 @@ OS=$(lsb_release -si)
 ARCH=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 VER=$(lsb_release -sr)
 
-dialog="You are using: /n $OS /n $ARCH /n $VER /n is this correct?"
+dialog="You are using: $'\n' OS: $OS $'\n' ARCH: x$ARCH $'\n' VER: $VER /n is this correct?"
 
 function installDocker {
 cat << "EOF"
