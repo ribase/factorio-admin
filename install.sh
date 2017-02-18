@@ -191,7 +191,7 @@ function doInstallUbuntu {
 
 if [ $OS = "Ubuntu" ]; then
     if (whiptail --title "Correct?" --yesno "$dialog" 12 78) then
-        installDockerUbuntu
+        installServer
     else
         exit;
     fi
