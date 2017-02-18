@@ -8,7 +8,7 @@ VER=$(lsb_release -sr)
 
 dialog="You are using: \n OS: $OS \n ARCH: x$ARCH \n VER: $VER \n is this correct?"
 
-function installDocker {
+function installDockerUbuntu {
 cat << "EOF"
              *
        *   *
@@ -179,17 +179,23 @@ sleep 3
 } | whiptail --gauge "Please wait while installing" 6 60 0
 }
 
-function doInstall {
+function doInstallUbuntu {
     if (whiptail --title "Docker" --yesno "Should i install docker for you?" 10 60) then
-        installDocker
+        installDockerUbuntu
         installServer
     else
         installServer
     fi
 }
 
-if (whiptail --title "Example Dialog" --yesno "$dialog" 12 78) then
-    doInstall
+
+if [ $OS = "Ubuntu" ]; then
+    if (whiptail --title "Correct?" --yesno "$dialog" 12 78) then
+        installDockerUbuntu
+    else
+        exit;
+    fi
 else
-   exit;
+    whiptail --title "Alert" --msgbox "You are using $OS, sorry no support for now." 8 78
 fi
+
