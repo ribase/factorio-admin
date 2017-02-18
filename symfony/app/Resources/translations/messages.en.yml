@@ -1,7 +1,0 @@
-name: Given Servername (String)
-description: Server description
-tags: Tags for online search
-max_players: Maximum amount of players on server
-visibility: Visibility of server in serverlist
-public: Public
-lan: LAN
