@@ -188,7 +188,7 @@ function doInstall {
     fi
 }
 
-if (whiptail --title "Example Dialog" --yesno $dialog 12 78) then
+if (whiptail --title "Example Dialog" --yesno "$dialog" 12 78) then
     doInstall
 else
    exit;
