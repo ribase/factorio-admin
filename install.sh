@@ -179,8 +179,6 @@ sleep 3
 } | whiptail --gauge "Please wait while installing" 6 60 0
 }
 
-OS=Blubb
-
 function doInstallUbuntu {
     if (whiptail --title "Docker" --yesno "Should i install docker for you?" 10 60) then
         installDockerUbuntu
