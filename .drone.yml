@@ -1,6 +1,6 @@
 pipeline:
   publish:
-    image: ribase/drone-s3-sync
+    image: drone/drone-s3-sync
     acl: public-read
     region: "eu-west-1"
     bucket: "factorio-admin"
