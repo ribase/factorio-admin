@@ -1,7 +1,11 @@
 pipeline:
+  clone:
+    image: plugins/git
+    depth: 50
+    command: ls -lah
+    command: pwd
   publish:
     image: plugins/s3
-    command: ls -lah
     acl: public-read
     region: "eu-west-1"
     bucket: "factorio-admin"
