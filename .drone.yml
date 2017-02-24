@@ -1,7 +1,4 @@
 pipeline:
-  clone:
-    depth: 1000
-    recursive: true
   publish:
     image: ribase/drone-s3-sync
     acl: public-read
