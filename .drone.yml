@@ -7,7 +7,7 @@ pipeline:
     access_key: $$ACCESS
     secret_key: $$SECRET
     source: /
-    target: /
+    target: /folder/
     recursive: true
     when:
       branch: master
