@@ -1,13 +1,13 @@
 pipeline:
   publish:
-    image: drone-plugins/drone-s3-sync
-    acl: public-read
-    region: "eu-west-1"
-    bucket: "factorio-admin"
-    access_key: $$ACCESS
-    secret_key: $$SECRET
-    source: /
-    target: /
-    recursive: true
-    when:
-      branch: master
+    s3_sync:
+      acl: public-read
+      region: "eu-west-1"
+      bucket: "factorio-admin"
+      access_key: $$ACCESS
+      secret_key: $$SECRET
+      source: /
+      target: /
+      recursive: true
+      when:
+        branch: master
