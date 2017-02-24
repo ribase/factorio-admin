@@ -9,7 +9,7 @@ pipeline:
     bucket: "factorio-admin"
     access_key: $$ACCESS
     secret_key: $$SECRET
-    source: public/**/*
+    source: /drone/src/github.com/ribase/factorio-admin/
     target: /folder/
     recursive: true
     when:
