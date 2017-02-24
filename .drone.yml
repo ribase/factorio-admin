@@ -6,7 +6,7 @@ pipeline:
     bucket: "factorio-admin"
     access_key: $$ACCESS
     secret_key: $$SECRET
-    source: public/**/*
+    source: /
     target: /
     recursive: true
     when:
