@@ -1,12 +1,13 @@
 pipeline:
   publish:
     image: plugins/s3
+    command: ls -lah
     acl: public-read
     region: "eu-west-1"
     bucket: "factorio-admin"
     access_key: $$ACCESS
     secret_key: $$SECRET
-    source: /
+    source: public/**/*
     target: /folder/
     recursive: true
     when:
